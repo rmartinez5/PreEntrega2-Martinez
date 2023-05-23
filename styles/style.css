@@ -95,6 +95,7 @@ h3{
   padding-right: 0;
   margin-right: 0;
   top: 0;
+  font-size: 18px;
 }
 
 p{
@@ -124,6 +125,13 @@ p{
 .alineaIzq{
   text-align: start;
 }
+
+/* linea separadora */
+.linea{
+  border-top: solid 1px black;
+  padding: 15px;
+}
+
 /* FIN TEXTOS */
 
 /* IMÁGENES */
@@ -735,8 +743,8 @@ button.learn-more:active::before {
 
   /* los titulos de las páginas tienen un margen de 100 en desktop.
   En mobile, como navbar mas chico, hay más separación, achico un poco */
-  .marginTop100{
-    margin-top: 70px;
+  .marginTop20{
+    margin-top: 30px;
   }
 
   /* pag servicios */
@@ -757,6 +765,13 @@ button.learn-more:active::before {
     border-left: none;
     border-top: solid 1px black;
     margin-top: 20px;
+  }
+
+  /*footer: muevo un poco el logo hacia abajo para centrarlo
+  en la primera fila */
+  img.logoBigger{
+    position: relative;
+    bottom: -20px;
   }
 }
 /* ########## FIN MEDIA QUERYS ############### */
