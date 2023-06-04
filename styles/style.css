@@ -1,4 +1,3 @@
-/* TODO! */
 *{
   margin: 0;
   padding: 0;
@@ -6,116 +5,350 @@
   font-family: 'Varela Round', sans-serif;
 }
 
-/* USAR UN GIF DE LOADER */
-/* fuente: https://www.youtube.com/watch?v=b9zyKCsUJfY */
-#loader{
-  position: fixed;
-  width: 100%;
+/* para el loader hamster */
+.centrado{
+  /* es el 100% de la página */
   height: 100vh;
-  z-index: 1;
-  overflow: visible;
-  background: white url(../imgs/gifs/sharksLoader.gif) no-repeat center center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* durante el loader, que oculte el contenido de la página */
 .hidden{
   overflow: hidden;
 }
 
+/* ######### FIN LOADER HAMSTER ########### */
+/* LOADING PÁGINA: HAMSTER IMPORTADO*/
+/* https://uiverse.io/Nawsome/wet-mayfly-23 */
+.wheel-and-hamster {
+  --dur: 1s;
+  position: relative;
+  width: 12em;
+  height: 12em;
+  font-size: 14px;
+}
+
+.wheel,
+.hamster,
+.hamster div,
+.spoke {
+  position: absolute;
+}
+
+.wheel,
+.spoke {
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.wheel {
+  background: radial-gradient(100% 100% at center,hsla(0,0%,60%,0) 47.8%,hsl(0,0%,60%) 48%);
+  z-index: 2;
+}
+
+.hamster {
+  animation: hamster var(--dur) ease-in-out infinite;
+  top: 50%;
+  left: calc(50% - 3.5em);
+  width: 7em;
+  height: 3.75em;
+  transform: rotate(4deg) translate(-0.8em,1.85em);
+  transform-origin: 50% 0;
+  z-index: 1;
+}
+
+.hamster__head {
+  animation: hamsterHead var(--dur) ease-in-out infinite;
+  background: hsl(30,90%,55%);
+  border-radius: 70% 30% 0 100% / 40% 25% 25% 60%;
+  box-shadow: 0 -0.25em 0 hsl(30,90%,80%) inset,
+        0.75em -1.55em 0 hsl(30,90%,90%) inset;
+  top: 0;
+  left: -2em;
+  width: 2.75em;
+  height: 2.5em;
+  transform-origin: 100% 50%;
+}
+
+.hamster__ear {
+  animation: hamsterEar var(--dur) ease-in-out infinite;
+  background: hsl(0,90%,85%);
+  border-radius: 50%;
+  box-shadow: -0.25em 0 hsl(30,90%,55%) inset;
+  top: -0.25em;
+  right: -0.25em;
+  width: 0.75em;
+  height: 0.75em;
+  transform-origin: 50% 75%;
+}
+
+.hamster__eye {
+  animation: hamsterEye var(--dur) linear infinite;
+  background-color: hsl(0,0%,0%);
+  border-radius: 50%;
+  top: 0.375em;
+  left: 1.25em;
+  width: 0.5em;
+  height: 0.5em;
+}
+
+.hamster__nose {
+  background: hsl(0,90%,75%);
+  border-radius: 35% 65% 85% 15% / 70% 50% 50% 30%;
+  top: 0.75em;
+  left: 0;
+  width: 0.2em;
+  height: 0.25em;
+}
+
+.hamster__body {
+  animation: hamsterBody var(--dur) ease-in-out infinite;
+  background: hsl(30,90%,90%);
+  border-radius: 50% 30% 50% 30% / 15% 60% 40% 40%;
+  box-shadow: 0.1em 0.75em 0 hsl(30,90%,55%) inset,
+        0.15em -0.5em 0 hsl(30,90%,80%) inset;
+  top: 0.25em;
+  left: 2em;
+  width: 4.5em;
+  height: 3em;
+  transform-origin: 17% 50%;
+  transform-style: preserve-3d;
+}
+
+.hamster__limb--fr,
+.hamster__limb--fl {
+  clip-path: polygon(0 0,100% 0,70% 80%,60% 100%,0% 100%,40% 80%);
+  top: 2em;
+  left: 0.5em;
+  width: 1em;
+  height: 1.5em;
+  transform-origin: 50% 0;
+}
+
+.hamster__limb--fr {
+  animation: hamsterFRLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30,90%,80%) 80%,hsl(0,90%,75%) 80%);
+  transform: rotate(15deg) translateZ(-1px);
+}
+
+.hamster__limb--fl {
+  animation: hamsterFLLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30,90%,90%) 80%,hsl(0,90%,85%) 80%);
+  transform: rotate(15deg);
+}
+
+.hamster__limb--br,
+.hamster__limb--bl {
+  border-radius: 0.75em 0.75em 0 0;
+  clip-path: polygon(0 0,100% 0,100% 30%,70% 90%,70% 100%,30% 100%,40% 90%,0% 30%);
+  top: 1em;
+  left: 2.8em;
+  width: 1.5em;
+  height: 2.5em;
+  transform-origin: 50% 30%;
+}
+
+.hamster__limb--br {
+  animation: hamsterBRLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30,90%,80%) 90%,hsl(0,90%,75%) 90%);
+  transform: rotate(-25deg) translateZ(-1px);
+}
+
+.hamster__limb--bl {
+  animation: hamsterBLLimb var(--dur) linear infinite;
+  background: linear-gradient(hsl(30,90%,90%) 90%,hsl(0,90%,85%) 90%);
+  transform: rotate(-25deg);
+}
+
+.hamster__tail {
+  animation: hamsterTail var(--dur) linear infinite;
+  background: hsl(0,90%,85%);
+  border-radius: 0.25em 50% 50% 0.25em;
+  box-shadow: 0 -0.2em 0 hsl(0,90%,75%) inset;
+  top: 1.5em;
+  right: -0.5em;
+  width: 1em;
+  height: 0.5em;
+  transform: rotate(30deg) translateZ(-1px);
+  transform-origin: 0.25em 0.25em;
+}
+
+.spoke {
+  animation: spoke var(--dur) linear infinite;
+  background: radial-gradient(100% 100% at center,hsl(0,0%,60%) 4.8%,hsla(0,0%,60%,0) 5%),
+        linear-gradient(hsla(0,0%,55%,0) 46.9%,hsl(0,0%,65%) 47% 52.9%,hsla(0,0%,65%,0) 53%) 50% 50% / 99% 99% no-repeat;
+}
+
+/* Animations */
+@keyframes hamster {
+  from, to {
+    transform: rotate(4deg) translate(-0.8em,1.85em);
+  }
+  
+  50% {
+    transform: rotate(0) translate(-0.8em,1.85em);
+  }
+}
+
+@keyframes hamsterHead {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(0);
+  }
+  
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(8deg);
+  }
+}
+
+@keyframes hamsterEye {
+  from, 90%, to {
+    transform: scaleY(1);
+  }
+  
+  95% {
+    transform: scaleY(0);
+  }
+}
+
+@keyframes hamsterEar {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(0);
+  }
+  
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(12deg);
+  }
+}
+
+@keyframes hamsterBody {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(0);
+  }
+  
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(-2deg);
+  }
+}
+
+@keyframes hamsterFRLimb {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(50deg) translateZ(-1px);
+  }
+  
+    12.5%, 37.5%, 62.5%, 87.5% {
+      transform: rotate(-30deg) translateZ(-1px);
+    }
+  }
+
+@keyframes hamsterFLLimb {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(-30deg);
+  }
+  
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(50deg);
+  }
+}
+
+@keyframes hamsterBRLimb {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(-60deg) translateZ(-1px);
+  }
+
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(20deg) translateZ(-1px);
+  }
+}
+
+@keyframes hamsterBLLimb {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(20deg);
+  }
+  
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(-60deg);
+  }
+}
+
+@keyframes hamsterTail {
+  from, 25%, 50%, 75%, to {
+    transform: rotate(30deg) translateZ(-1px);
+  }
+  
+  12.5%, 37.5%, 62.5%, 87.5% {
+    transform: rotate(10deg) translateZ(-1px);
+  }
+}
+
+@keyframes spoke {
+  from {
+    transform: rotate(0);
+  }
+  
+  to {
+    transform: rotate(-1turn);
+  }
+}
+/* ######### FIN LOADER HAMSTER ########### */
+
+
 /* ############## HEADER ################## */
-/* headerv3: hover subrayado, animación y shadow */
-.logoHeader{
+.headerContainer{
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+h1{
+  text-align: center;
+  font-size: 5rem;
+  /* color: #E15C0B; */
+  color: #ec741d;
+  /* margin-top: 30px; */
+  font-weight:bold;
+}
+
+/* nav */
+.fixed{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  padding: 5px;
+}
+
+/* header nav */
+.lista a{
+  margin: 50px;
+  margin-right: 111px;
+}
+
+body header nav ul a{
+  text-decoration: none;
+  color: black;
+  font-size: 1rem;
+}
+
+.cursor{
   width: 50px;
   height: 50px;
-}
-
-.imagenMain{
-  top: 10px; 
-  box-shadow: 0 0 15px #383838;
-}
-
-.imagenMainContainer{
-  background-color: #ec741d;
-  display: flex;
-  justify-content: center;
-  padding: 40px;
-}
-
-/* navbar: cambio el color de bootstrap */
-.navColor{
-  background-color: white;
-  justify-content: space-evenly;
-  transition: .3s;
-}
-
-/* navbar: agrego sombra */
-.navShadow{
-  box-shadow: 0 0 15px #383838;
-}
-
-/* navbar: animacion underline when hover */
-/* fuente: https://www.youtube.com/watch?v=wQx6fIkmJpM */
-.navAEffect{
-  transition: .3;
-  text-shadow: 0 0 .2px rgb(32, 32, 32);
-}
-.navAEffect:after{
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: #ec741d;
-  transform: scaleX(0);
-  transform-origin: bottom right;
-  transition: transform 0.3s ease-out;
-}
-.navAEffect,
-.navAEffect:hover:after{
-  transform: scale(1);
-  transform-origin: bottom left;
 }
 /* ############ FIN DE HEADER ############ */
 
 
 /* ############# CONFIG GRAL ############# */
 /* TEXTOS */
-h1{
-  font-size: 30px;
-}
-
-h2{
-  font-size: 20px;
-  padding: 10px;
-  top: 0;
-}
-
-h3{
-  padding-right: 0;
-  margin-right: 0;
-  top: 0;
-  font-size: 18px;
-}
-
-p{
-  margin-bottom: 0;
-}
-
 .orange{
   color: #ec741d;
 }
 
-.black{
-  color: #000000;
-}
-
 .centerText{
   text-align: center;
-}
-
-.cursiva{
-  font-style: oblique;
 }
 
 .negrita{
@@ -126,42 +359,40 @@ p{
   text-align: start;
 }
 
-/* linea separadora */
-.linea{
-  border-top: solid 1px black;
-  padding: 15px;
+h2{
+  font-weight:bold;
+  padding: 10px;
+  top: 0;
 }
 
+h3{
+  padding-right: 0;
+  margin-right: 0;
+  top: 0;
+}
+
+p{
+  margin-bottom: 0;
+}
 /* FIN TEXTOS */
 
-/* IMÁGENES */
-.cotaImagenSection{
+/* IIMÁGENES */
+.cotaImagen500{
+  height: 500px;
+  width: 500px;
+}
+
+.cotaImagenMain{
   height: 500px;
   width: 280px;
 }
 
-.imagenResponsive{
-  max-width: 100%; 
-  height: auto;
-}
-
-/* achicar imágenes en forma proporcional */
-.scaled-8{
-  transform: scale(0.8); 
-  /* Igual que: scaleX(0.5) scaleY(0.5) */
-}
-
-.imageBorder{
-  padding: 0;
-  box-shadow: 0 0 10px rgb(39, 41, 37);
-}
-
 .imagesContainer{
   display: flex;
+  flex-direction: row;
   justify-content: center;
-  align-items: center;
-  align-content: center;
-  row-gap: 20px;
+  align-items: end;
+  column-gap: 20px;
 }
 
 .offerContainer{
@@ -175,42 +406,34 @@ p{
   padding: 10px;
 }
 
-.padding20{
-  padding: 20px;
+.padding010{
+  padding: 0 10px;
 }
 
 .padding0100{
   padding: 0 100px;
 }
 
-.paddingTop10{
-  padding-top: 10;
-}
-
-.paddingTop20{
-  padding-top: 20;
-}
-
-.paddingBottom10{
-  padding-bottom: 10px;
-}
-
 .paddingBottom20{
   padding-bottom: 20px;
+}
+
+.paddingBottom60{
+  padding-bottom: 60px;
 }
 /* FIN PADDING */
 
 /* MARGIN */
-.margin20{
-  margin: 20px;
-}
-
 .marginLeft20{
   margin-left: 20px;
 }
 
 .marginLeft50{
   margin-left: 50px;
+}
+
+.marginRight200{
+  margin-right: 200px;
 }
 
 .margin050{
@@ -228,15 +451,6 @@ p{
 .marginTop50{
   margin-top: 50px;
 }
-
-.marginTop70{
-  margin-top: 70px;
-}
-
-.marginTop100{
-  margin-top: 100px;
-}
-
 .marginBottom20{
   margin-bottom: 20px;
 }
@@ -246,11 +460,12 @@ p{
 }
 /* FIN MARGIN */
 
-
-/* cursor arriba del accodion */
-.cursor{
-  width: 50px;
-  height: 50px;
+.border{
+  border-style: groove;
+  padding: 10px;
+  background-color: white; 
+  margin-bottom: 30px;
+  margin-top: 8px;
 }
 /* ########### FIN CONFIG GRAL ########### */
 
@@ -276,30 +491,25 @@ p{
   justify-content: center;
 }
 
+.videos{
+  margin-top: 8px;
+  height: 500px;
+  background-color: #ec741d; 
+  border-style: groove;
+}
 /* ############ FIN VIDEOS ################ */
 
 
-/* ########### PAG AUTOGESTION ############ */
-/* CAROUSEL */
-/* el fondo es blanco, los botones no se ven, así que invierto sus colores*/
-.carousel-control-prev-icon, .carousel-control-next-icon {
-  filter: invert(108%);
+/* ########## PAG QUIENES SOMOS ########### */
+.somos{
+  font-weight: bold;
+  font-style: oblique;
 }
 
-div.carousel-item.active{
-  padding-top: 0;
-  margin-top: 0;
-  /* background-color: #ec741d; */
+.somos2rem{
+  font-size: 2rem;
 }
-
-/* ME QUEDA MUCHO MARGEN entre la imagen y container */
-/* CORREGIR */
-.carouselContainer{
-  padding: 0;
-  box-shadow: 0 0 10px rgb(39, 41, 37);
-}
-/* FIN CAROUSEL */
-/* ######### FIN PAG AUTOGESTION ########### */
+/* ######## FIN PAG QUIENES SOMOS ######### */
 
 
 /* ############# PAG SERVICIOS ############# */
@@ -315,47 +525,47 @@ div.carousel-item.active{
 .servicioContainer{
   display: flex;
   justify-content: center;
-  column-gap: 10px;
+  column-gap: 20px;
 }
 /* ########### FIN PAG SERVICIOS ########### */
 
 
 /* ################ FOOTER ################ */
 #footer{
+  /* background-color: #E15D0E; */
+  /* background-color: #ec741d; */
   background-color: #ec741d;
   background-size: cover;
 }
 
-/* custom clase bootstrap */
-.row{
-  margin-right: 0;
-  row-gap: 25px;
+.footContainerIndex{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  padding: 0 20px;
 }
 
-.rowFooter{
-  row-gap: 0;
-}
-
-/* logo del footer mas grande */
 .logoBigger{
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
+}
+
+.irArribaContainer{
+  width: 50%;
+}
+
+.footerText{
+  margin-top: 20px;
+  font-style: oblique;
+  color: white;
 }
 
 .logoFooterContainer{
   display: flex;
   justify-content: center;
-  align-items: center;
-}
-
-.footerContainerNoIndex{
-  padding: 15px 0;
-  justify-content: center;
-  align-items: center;
-}
-
-div.logoFooterContainer{
-  height: 100%;
+  /* align-items: center; */
+  align-content: center;
 }
 
 .logoFooter{
@@ -363,47 +573,38 @@ div.logoFooterContainer{
   height: 50px;
 }
 
-/* custom clase bootstrap */
-div.col-4{
-  padding-top: 20px;
+.footContainer{
   display: flex;
-  flex-direction: column;
-}
-
-.irArribaContainer{
-  padding-top: 20px;
-  display: flex;
-  flex-direction: column;
-  align-content: start;
-  align-items: start;
   justify-content: start;
-  justify-items: start;
+  align-items: center;
+  padding: 10px 0;
+  column-gap: 20px;
 }
 
-.footerText{
-  margin-top: 20px;
-  color: #000000;
-}
-
-.paddingBottom10,
 #footer div h4{
   padding-bottom: 10px;
 }
 
-/* borde izquierdo en footer */
-.borderLeft{
-  border-left: solid 1px black;
-  padding-left:50px;
+h4{
+  color: #000000;
+  font-size: medium;
 }
 
-/* links comunicate con nosotros */
-div.aContainer{
+.borderLeft{
+  border-left: solid 1px black;
+  padding: 0 50px;
   padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+/* links comunícate con nosotros */
+.aContainer{
   display: flex;
   flex-direction: column;
-  align-content: start;
-  align-items: start;
-  justify-items: end;
+  height: 100%;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
 }
 
 /* clase para los a del footer*/
@@ -419,13 +620,11 @@ div.aContainer{
   height: 30px;
 }
 
-/* derechos de autor iconos footer */
 .derechos{
   color: white;
   margin-top: 20px;
 }
 
-/* comodin */
 .inline{
   display: inline;
 }
@@ -435,9 +634,12 @@ div.aContainer{
 /* ############## FORM #################### */
 .formulario{
   background-color: #ec741d;
+  background-image: url(../imgs/yuppiesForm.png);
+  /* background-size: cover; */
   background-size: contain;
+  background-repeat: no-repeat;
   background-position: center;
-  /* width: 400px; */
+  margin: 30px;
 }
 
 .formulario div{
@@ -600,6 +802,7 @@ button.learn-more::before {
   right: 0;
   bottom: 0;
   background: white;
+
   border-radius: inherit;
   -webkit-box-shadow: 0 0 0 2px #4985e01f, 0 0.625em 0 0 #ffe3e2; 
   box-shadow: 0 0 0 2px #4985e01f, 0 0.625em 0 0 #ec741d;
@@ -635,7 +838,7 @@ button.learn-more:active::before {
 /* ############ FIN Botón "ROSA" ############ */
 
 
-/* CUADRO DE TEXTO IMPORTADO */
+/* CUADRO DE TEXTO */
 /* https://uiverse.io/ahmed150up/chilly-rattlesnake-8 */
 .card {
   width: 260px;
@@ -713,65 +916,7 @@ button.learn-more:active::before {
   box-shadow: none;
   transition: all 0.5s;
 }
+
+/* tamaño TABLET */
+@media screen and (max-width:500px)
 /* ############## FIN FORM ################## */
-
-
-/* ############ MEDIA QUERYS ################ */
-/* Condición: para vistas HASTA 600px */
-@media screen and (max-width: 600px){
-  /* navbar: que no se vea el logo*/
-  header nav .logoHeader{
-    display: none;
-  }
-
-  /* navbar: aunque el logo no se muestre, quedaba un margin extra debido a este elemento, así que lo compenso con un margin negativo */
-  .navbar{
-    margin-left: -10px;
-  }
-
-  /* navbar: achico la fuente para que quede en una sola fila */
-  .fuenteMobile{
-    font-size: 12px;
-  }
-
-  /* navbar: que haya menos margen/separacion entre los elementos */
-  .navbar div,
-  .navbar a{
-    display: flex;
-    margin: 0;
-  }
-
-  /* los titulos de las páginas tienen un margen de 100 en desktop.
-  En mobile, como navbar mas chico, hay más separación, achico un poco */
-  .marginTop20{
-    margin-top: 30px;
-  }
-
-  /* pag servicios */
-  .servicioContainer{
-    flex-direction: column;
-  }
-
-  /* footer: los botones que se dispongan en columnas en lugar de fila */
-  .botones-container{
-    flex-direction: column;
-    margin-right: 30px;
-    /* justify-content: start; */
-  }
-
-  /* footer: cambio a borde superior en lugar de borde izquierdo */
-  /* aumento separación entre filas*/
-  .borderTop{
-    border-left: none;
-    border-top: solid 1px black;
-    margin-top: 20px;
-  }
-
-  /*footer: muevo un poco el logo hacia abajo para centrarlo
-  en la primera fila */
-  img.logoBigger{
-    position: relative;
-    bottom: -20px;
-  }
-}
-/* ########## FIN MEDIA QUERYS ############### */
